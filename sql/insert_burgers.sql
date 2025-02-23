@@ -1,3 +1,4 @@
+ALTER TABLE burgers ADD CONSTRAINT unique_burger_name UNIQUE (name);
 INSERT INTO burgers (name, price, truck_id) VALUES
     -- Truck 1
     ('Classic Beef Bliss', 15, 1),
@@ -32,4 +33,6 @@ INSERT INTO burgers (name, price, truck_id) VALUES
     -- Truck 7
     ('Texas Brisket Smash', 19, 7),
     ('Caramelized Onion Classic', 23, 7),
-    ('Ghost Pepper Firestorm', 26, 7);
+    ('Ghost Pepper Firestorm', 26, 7)
+ON CONFLICT (name) DO NOTHING;
+
